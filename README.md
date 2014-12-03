@@ -24,8 +24,8 @@ trait Example {
 ```
 
 The infrastructure of `Example` does the following:
-  * `import scala.meta.internal.ast._` brings [internal representation](https://github.com/xeno-by/scalameta/blob/master/scalameta/src/main/ scala/scala/meta/Trees.scala#L80) for trees underlying [core traits](https://github.com/xeno-by/scalameta/blob/master/scalameta/src/main/scala/scala/meta/Trees.scala) and [quasiquotes](https://github.com/xeno-by/scalameta/blob/master/scalameta/src/main/scala/scala/meta/package.scala). It is necessary, because our implementation of  quasiquotes is currently a stub, so manual tree construction/deconstruction might be required.
-  * `import scala.meta.semantic._` brings [semantic APIs](https://github.com/xeno-by/scalameta/blob/master/scalameta/src/main/scala/scala/meta/ semantic/package.scala).
+  * `import scala.meta.internal.ast._` brings [internal representation](https://github.com/xeno-by/scalameta/blob/master/scalameta/src/main/scala/scala/meta/Trees.scala#L80) for trees underlying [core traits](https://github.com/xeno-by/scalameta/blob/master/scalameta/src/main/scala/scala/meta/Trees.scala) and [quasiquotes](https://github.com/xeno-by/scalameta/blob/master/scalameta/src/main/scala/scala/meta/package.scala). It is necessary, because our implementation of  quasiquotes is currently a stub, so manual tree construction/deconstruction might be required.
+  * `import scala.meta.semantic._` brings [semantic APIs](https://github.com/xeno-by/scalameta/blob/master/scalameta/src/main/scala/scala/meta/semantic/package.scala).
   * `import scala.meta.semantic.errors.throwExceptions` makes fallible semantic APIs to throw exceptions rather than wrap them in monads.
   * `implicit val host = scala.meta.internal.hosts.scalac.Scalahost(global)` creates a host, i.e. something that can process requests to semantic APIs. An implicit value of type `Host` is required to be in scope for most semantic APIs. Read more about hosts in [our docs](https://github.com/scalameta/scalameta/blob/master/docs/hosts.md).
 
